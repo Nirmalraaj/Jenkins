@@ -1,17 +1,17 @@
 pipeline{
 	agent any
 		stages {
-			stage('one'){
+			stage(job1){
 				steps {
 					echo 'Hi, this is nirmal'
 				}
 			}
-			stage('two') {
+			stage(safejob) {
 				steps {
 					input('Do u want to proceed')
 				}
 			}
-			stage('three') {
+			stage(privaterepository) {
 				when {
 					not {
 						branch "master"
