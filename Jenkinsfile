@@ -3,6 +3,9 @@ pipeline{
 	tools {
 		jdk '1.8.0_252'
 	}
+	parameters {
+        	choice(name: 'branch', choices: ['master', 'slave1', 'slave2'], description: 'Run on specific platform')
+         }
 	options {
 		timestamps()
 		
@@ -17,9 +20,9 @@ pipeline{
 		}
 		stage('check the source code'){
 			steps{
-				parameters([choice(choices: ['master\nslave1\nslave2'], description: '', name: 'branch')])
-				echo "pulling th changes from ${params.branch}"
-				git url :"https://github.com/Nirmalraaj/Jenkins", branch :"${params.branch}"
+				
+				echo "pulling th changes from ${branch}"
+				git url :"https://github.com/Nirmalraaj/Jenkins", branch :"${branch}"
 				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Nirmalraaj/Jenkins.git']]])
 			}
 		}
