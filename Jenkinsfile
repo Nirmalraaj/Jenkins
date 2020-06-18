@@ -21,8 +21,8 @@ pipeline{
 		stage('check the source code'){
 			steps{
 				
-				echo "pulling th changes from ${branch}"
-				git url :"https://github.com/Nirmalraaj/Jenkins", branch :"${branch}"
+				echo "pulling th changes from ${params.branch}"
+				git url :"https://github.com/Nirmalraaj/Jenkins", branch :"${params.branch}"
 				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Nirmalraaj/Jenkins.git']]])
 			}
 		}
