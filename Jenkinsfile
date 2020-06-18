@@ -18,7 +18,7 @@ pipeline{
 			steps{
 				parameters([choice(choices: 'master\nslave1\nslave2', description: '', name: 'branch')])
 				echo "pulling th changes from ${params.branch}"
-				git url "https://github.com/Nirmalraaj/Jenkins", branch : "${params.branch}"
+				git url :"https://github.com/Nirmalraaj/Jenkins", branch :"${params.branch}"
 				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Nirmalraaj/Jenkins.git']]])
 			}
 		}
