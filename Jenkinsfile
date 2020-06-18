@@ -1,15 +1,15 @@
 pipeline{
 	agent any
 	tools {
-		jdk 'JDK1.8'
+		jdk 'JDK1.8.0_252'
 	}
 	options {
 		timestamps()
-		properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5'))])
+		properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5'))])
 	}
 	stages {
 		stage('Display the path of jenkins'){
-			steps{
+			steps {
 				echo "this is building an job"
 				echo "PATH = ${PATH}"
 			}
@@ -20,7 +20,9 @@ pipeline{
 			}
 		}
 		stage('run the python code'){
-			sh 'python test.py'
+			steps {
+				sh 'python test.py'
+			}
 		}
 	}
 }
