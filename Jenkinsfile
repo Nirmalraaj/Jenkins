@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	tools {
-		jdk 'JDK1.8.0_252'
+		jdk '1.8.0_252'
 	}
 	options {
 		timestamps()
