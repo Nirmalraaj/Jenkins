@@ -5,7 +5,7 @@ pipeline{
 	}
 	options {
 		timestamps()
-		properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5'))])
+		
 	}
 	stages {
 		stage('Display the path of jenkins'){
