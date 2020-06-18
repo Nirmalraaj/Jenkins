@@ -5,7 +5,7 @@ pipeline{
 	}
 	options {
 		timestamps()
-		parameters([choice(choices: 'master\nslave1\nslave2', description: '', name: 'branch')])
+		properties([[$class: 'JiraProjectProperty'], parameters([choice(choices: ['master', 'slave1', 'slave2'], description: '', name: 'branch')])])
 		
 	}
 	stages {
