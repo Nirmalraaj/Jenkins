@@ -18,12 +18,12 @@ pipeline{
 				echo "PATH = ${PATH}"
 			}
 		}
-		stage('check the source code'){
+		stage('run the slave branch'){
 			steps{
 				
 				echo "pulling th changes from ${params.branch}"
 				git url :"https://github.com/Nirmalraaj/Jenkins", branch :"${params.branch}"
-				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Nirmalraaj/Jenkins.git']]])
+				sh 'python demo.py'
 			}
 		}
 		stage('run the python code'){
