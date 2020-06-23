@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	tools {
-		JAVA_HOME
+		jdk '1.8.0_141'
 	}
 	parameters {
         	choice(name: 'branch', choices: ['master', 'slave1', 'slave2'], description: 'Run on specific platform')
