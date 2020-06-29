@@ -6,7 +6,7 @@ node{
    }
    stage('Deploy to Tomcat'){
     sshagent(['jenkins_tom']) {
-    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/automated_deploy/target/*.war  ec2-user@34.202.233.126:/home/ec2-user/airflow/dags/'
+    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/airflow_test/*.py  ec2-user@54.156.115.234:/home/ec2-user/airflow/dags/'
      }
     
     }
