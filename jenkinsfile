@@ -2,7 +2,7 @@
   
 node{
    stage('SCM Checkout'){
-     
+     git 'https://github.com/Nirmalraaj/Jenkins/'
      }
    stage('Deploy to Tomcat'){
     sshagent(['jenkins_tom']) {
