@@ -2,8 +2,8 @@
   
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/bhavanimahalingam/testjob'
-   }
+     sh 'python test.py'
+     }
    stage('Deploy to Tomcat'){
     sshagent(['jenkins_tom']) {
     sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/airflow_test/*.py  ec2-user@54.156.115.234:/home/ec2-user/airflow/dags/'
