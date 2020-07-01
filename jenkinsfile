@@ -2,7 +2,11 @@
   
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/Nirmalraaj/Jenkins/'
+     git 'https://github.com/Nirmalraaaaaaaaaaaaj/Jenkins/'
+     if (!continueBuild) {
+    currentBuild.result = 'ABORTED'
+    error('Stopping early…')
+}
      }
    stage('Deploy to airflow'){
     sshagent(['jenkins_tom']) {
