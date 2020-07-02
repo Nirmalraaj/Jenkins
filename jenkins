@@ -1,8 +1,7 @@
 node{
    stage('SCM Checkout'){
      git 'https://github.com/Nirmalraaj/Jenkins/'
-       name = ${currentBuild.number}
-       echo "${name}"
+    
        echo "${currentBuild.number}"
     
      }
