@@ -1,7 +1,7 @@
 node{
    stage('SCM Checkout'){
      git 'https://github.com/Nirmalraaj/Jenkins/'
-     
+       echo "${currentBuild.number}"
   
      }
    stage('Deploy to airflow'){
@@ -10,10 +10,10 @@ node{
     }
     }
     stage('copy artifacts')
-    {  dir('/var/lib/jenkins/jobs/airflow_test/'){
-        archiveArtifacts artifacts: '**', onlyIfSuccessful: true
+    {  dir('/var/lib/jenkins/jobs/airflow_test/builds/${currentBuild.number}/'){
+        archiveArtifacts artifacts: 'test.py', onlyIfSuccessful: true
         sh 'pwd'
-        echo "${currentBuild.number}"
+      
         
         }
         
