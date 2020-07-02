@@ -12,6 +12,6 @@ node{
     {
         step ([$class: 'CopyArtifact',
           projectName: 'airflow_test',
-          filter: 'target/*.*']);
+          filter: '*/*.*']);
     }
 }  
