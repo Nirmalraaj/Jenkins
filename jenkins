@@ -10,7 +10,6 @@ node{
     }
     stage('copy artifacts')
     {
-        step ([$class: 'CopyArtifact',
-          projectName: 'airflow_test', filter: '**/*.*']);
+        archiveArtifacts artifacts: 'test.py', onlyIfSuccessful: true
     }
 }  
