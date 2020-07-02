@@ -13,18 +13,14 @@ node{
         
     {  sh'pwd' 
     sh "cd /var/lib/jenkins/jobs/airflow_test/builds/${currentBuild.number}/"
-    sh 'pwd'
-    sh 'ls'
-    dir('/var/lib/jenkins/jobs/airflow_test/builds/${currentBuild.number}/'){
-       echo "${currentBuild.number}"
-       sh 'ls'
+   
       
-       sh 'pwd'
-        //archiveArtifacts artifacts: 'test.py', onlyIfSuccessful: true
+       
+ archiveArtifacts artifacts: '**', onlyIfSuccessful: true
        
       
         
-        }
+        
         
        
     }
