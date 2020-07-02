@@ -1,0 +1,17 @@
+node{
+   stage('SCM Checkout'){
+     git 'https://github.com/Nirmalraaj/Jenkins/'
+  
+     }
+   stage('Deploy to airflow'){
+    sshagent(['jenkins_tom']) {
+    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/airflow_test/*.py  ec2-user@54.156.115.234:/home/ec2-user/airflow/dags/'
+    }
+    }
+    stage('copy artifacts')
+    {
+        step ([$class: 'CopyArtifact',
+          projectName: 'airflow_test',
+          filter: 'target/*.*']);
+    }
+}  
