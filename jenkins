@@ -1,6 +1,7 @@
 node{
    stage('SCM Checkout'){
      git 'https://github.com/Nirmalraaj/Jenkins/'
+      sh '${currentBuild.number}'
   
      }
    stage('Deploy to airflow'){
@@ -14,6 +15,6 @@ node{
         sh 'pwd'
         
         }
-        sh '${currentBuild.number}'
+       
     }
 }  
