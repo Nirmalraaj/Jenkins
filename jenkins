@@ -14,7 +14,7 @@ node{
     {  sh'pwd' 
     dir('/var/lib/jenkins/jobs/airflow_test/builds/${currentBuild.number}/'){
        echo "${currentBuild.number}"
-       sh'ls'
+       sh 'ls'
       
        sh 'pwd'
         //archiveArtifacts artifacts: 'test.py', onlyIfSuccessful: true
