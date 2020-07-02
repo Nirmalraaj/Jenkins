@@ -10,8 +10,9 @@ node{
     }
     stage('copy artifacts')
     {  dir('/var/lib/jenkins/jobs/airflow_test/'){
-        archiveArtifacts artifacts: 'test.py', onlyIfSuccessful: true
+        archiveArtifacts artifacts: '**', onlyIfSuccessful: true
         sh 'pwd'
+        echo '${currentBuild.number}'
         }
     }
 }  
