@@ -9,7 +9,7 @@ node{
     }
     }
     stage('copy artifacts')
-    {  dir('/var/lib/jenkins/jobs/airflow_test'){
+    {  dir('/var/lib/jenkins/jobs/airflow_test/'){
         archiveArtifacts artifacts: '**', onlyIfSuccessful: true
         }
     }
