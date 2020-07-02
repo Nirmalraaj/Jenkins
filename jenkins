@@ -17,6 +17,10 @@ node{
       
        
  archiveArtifacts artifacts: 'test.py', onlyIfSuccessful: true
+ sshagent(['jenkins_tom']) {
+    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/jobs/airflow_test/builds/${currentBuild.number}/archive/*.py  ec2-user@54.156.115.234:/var/lib/jenkins/jobs/airflow_test/builds/lastsuccess/'
+    }
+
  
  
  
