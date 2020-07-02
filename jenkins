@@ -11,7 +11,6 @@ node{
     stage('copy artifacts')
     {
         step ([$class: 'CopyArtifact',
-          projectName: 'airflow_test',
-          filter: '*/*.*']);
+          projectName: 'airflow_test']);
     }
 }  
