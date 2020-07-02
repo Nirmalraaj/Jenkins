@@ -2,7 +2,7 @@ node{
    stage('SCM Checkout'){
      git 'https://github.com/Nirmalraaj/Jenkins/'
        echo "${currentBuild.number}"
-  
+    sh 'echo "${currentBuild.previousBuild.getNumber()" '
      }
    stage('Deploy to airflow'){
     sshagent(['jenkins_tom']) {
@@ -10,9 +10,9 @@ node{
     }
     }
     stage('copy artifacts')
-    {  dir('/var/lib/jenkins/jobs/airflow_test/builds/${currentBuild.previousBuild.getNumber()}/'){
+    {  dir('/var/lib/jenkins/jobs/airflow_test/builds/'){
         archiveArtifacts artifacts: 'test.py', onlyIfSuccessful: true
-        sh 'pwd'
+       
       
         
         }
