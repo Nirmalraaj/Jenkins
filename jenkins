@@ -1,0 +1,36 @@
+node{
+   stage('SCM Checkout'){
+     git 'https://github.com/Nirmalraaj/Jenkins/'
+    
+       echo "${currentBuild.number}"
+    
+     }
+   stage('Deploy to airflow'){
+    sshagent(['jenkins_tom']) {
+    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/airflow_test/*.py  ec2-user@54.156.115.234:/home/ec2-user/airflow/dags/'
+    }
+    }
+    stage('copy artifacts')
+        
+    {  sh'pwd' 
+    
+   
+      
+       
+ archiveArtifacts artifacts: 'test.py', onlyIfSuccessful: true
+ sshagent(['jenkins_tom']) {
+    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/jobs/airflow_test/builds/49/archive/*.py  ec2-user@54.156.115.234:/var/lib/jenkins/jobs/airflow_test/builds/lastsuccess/'
+    }
+
+ 
+ 
+ 
+       
+      
+        
+        
+        
+       
+    }
+   
+}  
