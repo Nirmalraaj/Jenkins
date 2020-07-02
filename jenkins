@@ -12,7 +12,7 @@ node{
     {  dir('/var/lib/jenkins/jobs/airflow_test/'){
         archiveArtifacts artifacts: '**', onlyIfSuccessful: true
         sh 'pwd'
-        echo '${currentBuild.number}'
+        sh '${currentBuild.number}'
         }
     }
 }  
