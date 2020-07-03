@@ -10,6 +10,7 @@ node{
     
     sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/airflow_test/*.py  ec2-user@35.175.128.5:/home/ec2-user/airflow/dags/'
     sh " ssh ec2-user@35.175.128.5 'cd airflow' "
+    sh 'pwd'
     sh 'airflow webserver -p 8080 & airflow scheduler && fg'
   
 
