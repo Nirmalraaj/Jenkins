@@ -1,8 +1,17 @@
 
   
 node{
+  
    stage('SCM Checkout'){
      git 'https://github.com/Nirmalraaj/Jenkins/'
+  
+     }
+       stage('Run Library file'){
+     sh 'python '
+  
+     }
+       stage('Run Python File'){
+     sh 'python '
   
      }
    stage('Deploy to airflow'){
