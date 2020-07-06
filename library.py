@@ -17,7 +17,7 @@ pkgs1=[]
 #print([pip.main(['list'])])
 installed = [pkg.key for pkg in pkg_resources.working_set]
 print(installed)
-with open(r'F:\AWS\code\sample.py') as f:
+with open('sample.py') as f:
     for lines in f:
         if "import" in lines and "#" not in lines:
             tmp = lines.split("import")
@@ -33,4 +33,4 @@ print("+++++++++++++++++++++++++++++++++++++")
     if package in installed or package.lower() in installed:
             pkgs.remove(package)
             print(pkgs)'''
-#pip.main(['install'] + pkgs)
+pip.main(['install'] + pkgs)
