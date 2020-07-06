@@ -10,7 +10,7 @@ node{
       sshagent(['jenkins_tom']) {
     
     
-    sh " ssh ec2-user@35.175.128.5 'ls' "
+    sh " ssh ec2-user@54.167.84.225 'ls' "
     }
      sh 'sudo python library.py'
   
