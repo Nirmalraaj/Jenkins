@@ -6,7 +6,7 @@ node{
   
      }
      stage('run python library'){
-     sh 'python library.py'
+     sh 'sudo python library.py'
   
      }
      stage('run python file'){
