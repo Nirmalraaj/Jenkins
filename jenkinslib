@@ -6,11 +6,11 @@ node{
   
      }
      stage('run python library'){
-     sh 'python sample.py'
+     sh 'python library.py'
   
      }
      stage('run python file'){
-     sh 'python library.py'
+     sh 'python sample.py'
   
      }
   
