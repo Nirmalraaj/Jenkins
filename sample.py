@@ -1,13 +1,13 @@
 from flask import Flask
-import os
-import datetime
-import requests
-import awscli
-import botocore
+#import os
+#import datetime
+#import requests
+#import awscli
+#import botocore
 import boto3
-import mutagen
-import python-magic-bin
-import  werkzeug
+#import mutagen
+
+#import  werkzeug
 import sys
 #import pillow
 app = Flask(__name__)
