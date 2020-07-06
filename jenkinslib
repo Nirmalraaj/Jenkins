@@ -5,18 +5,18 @@ node{
      git 'https://github.com/Nirmalraaj/Jenkins/'
   
      }
-    
+     sshagent(['jenkins_tom']) {
      stage('run python library'){
-      sshagent(['jenkins_tom']) {
+      
     
     
-    sh " ssh ec2-user@54.167.84.225 'ls' "
-    }
-     sh 'sudo python library.py'
+    sh " ssh ec2-user@54.167.84.225 'sudo python library.py' "
+    
+     
   
      }
      stage('run python file'){
-     sh 'python sample.py'
+     sh " ssh ec2-user@54.167.84.225 'python sample.py' "
   
      }
   
@@ -25,3 +25,4 @@ node{
      
     
 }  
+}
