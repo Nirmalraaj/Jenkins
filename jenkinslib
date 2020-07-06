@@ -1,1 +1,21 @@
 
+node{
+  
+   stage('SCM Checkout'){
+     git 'https://github.com/Nirmalraaj/Jenkins/'
+  
+     }
+     stage('run python library'){
+     sh 'python sample.py'
+  
+     }
+     stage('run python file'){
+     sh 'python library.py'
+  
+     }
+  
+
+
+     
+    
+}  
